@@ -1,9 +1,10 @@
 ARG BASE_IMAGE=mcr.microsoft.com/java/jre-headless:8u212-zulu-alpine-with-tools
 FROM $BASE_IMAGE
 
-RUN addgroup -S app && adduser -S reduuser -G app && echo "reduuser:Docker!" | chpasswd
+# ADD test user
+# RUN addgroup -S app && adduser -S reduuser -G app && echo "reduuser:Docker!" | chpasswd
 
-COPY --chown=reduuser:app docker/ssh_setup.sh /tmp/sh/
+# COPY --chown=reduuser:app docker/ssh_setup.sh /tmp/sh/
 COPY docker/sshd_config /etc/ssh/
 
 # Copy and configure the ssh_setup file

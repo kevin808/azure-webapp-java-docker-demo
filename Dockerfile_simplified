@@ -1,0 +1,5 @@
+FROM alpine:latest
+RUN apk --update add openjdk8-jre
+WORKDIR /test
+ADD app.jar /test/app.jar
+ENTRYPOINT ["java", "-jar", "/test/app.jar"]
